@@ -21,6 +21,24 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
   </head>
+  <!-- MOBILE DEBUGGER START -->
+<div id="mobile-error-log" style="position:fixed; top:0; left:0; width:100%; max-height:50vh; overflow-y:auto; background:rgba(255,0,0,0.95); color:white; font-family:monospace; padding:15px; z-index:999999; font-size:13px; display:none; border-bottom:3px solid black;">
+  <strong>⚠️ Mobile Console Errors:</strong><br><br>
+</div>
+
+<script>
+  window.addEventListener('error', function(e) {
+    var errorBox = document.getElementById('mobile-error-log');
+    errorBox.style.display = 'block';
+    var errorLine = document.createElement('div');
+    errorLine.style.marginBottom = '8px';
+    errorLine.innerHTML = '❌ <b>Error:</b> ' + e.message + '<br>📁 <b>File:</b> ' + e.filename + '<br>📍 <b>Line:</b> ' + e.lineno;
+    errorBox.appendChild(errorLine);
+  });
+</script>
+<!-- MOBILE DEBUGGER END -->
+
+  
   <body>
     <div id="app"></div>
 
